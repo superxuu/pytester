@@ -17,7 +17,7 @@ def param_to_excel(api_info, case_excel):
         print(f'创建新的sheet:{api_info["apiName"]}')
         wb.create_sheet(api_info['apiName'], index=0)
     else:
-        print(f'已存在名称为{api_info["apiName"]}的sheet！')
+        print(f'已存在的sheet：{api_info["apiName"]}')
         return
     sheet = wb.active
     # 入参个数
@@ -77,5 +77,5 @@ def main(project_name, case_name=None):
     print('Done!!!')
 
 if __name__ == '__main__':
-    # main('BigData','phone_check')
-    main('BigData')
+    # main('BigData','phone_check') #给了项目名和具体案例名，生成具体案例的excel sheet模板
+    main('BigData') #只给项目名，找到项目的conf目录，为所有yaml生成excel sheet,已生成的自动跳过
