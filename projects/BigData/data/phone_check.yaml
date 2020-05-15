@@ -1,0 +1,1 @@
+apiName: phone_checkcases:  - {key1: 123, key2: qqq, key3: www, key4: rrr, key5: 777, srcCode: 0000, srcMsg: 测试通过, name: 测试案例1}  - {key1: 123, key2: qqq, key3: www, key4: rrr, key5: 777, srcCode: 0000, srcMsg: 测试通过, name: 测试案例2}
