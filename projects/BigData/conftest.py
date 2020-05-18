@@ -18,9 +18,6 @@ from projects.BigData import pre_test
 project = 'BigData'
 
 
-# apiName = []
-
-
 def pytest_generate_tests(metafunc):
     global apiName
     apiName = []
