@@ -63,6 +63,7 @@ def param_to_excel(api_info, case_excel):
     sheet.append(title_list)
     # sheet.row_dimensions[2].alignment = Alignment(horizontal='center', vertical='center')
     wb.save(case_excel)
+    wb.close()
 
 def main(project_name, case_name=None):
     yaml_conf_folder = Path(f'../projects/{project_name}/conf/')
