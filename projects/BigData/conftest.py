@@ -31,9 +31,9 @@ def handdle_data(data):
     func = getattr(pre_test, apiName[0])
 
     # 对该项目下所有接口的所有入参做同样的事情
-    print('对该项目下所有接口的所有入参做同样的事情')
+    print(f'对{project}项目下所有接口的所有入参做同样的事情')
+
 
     return func.handdle_data(data)
 
-# from projects.BigData.pre_test import phone_qqq
-# from projects.BigData.pre_test import phone_check
+

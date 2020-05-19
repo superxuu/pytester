@@ -1,24 +1,18 @@
 import time
 from parameterized import parameterized, parameterized_class
 import pytest
+import requests
 
 
 class TestPhoneCheck:
     apiName = 'phone_check'
-    # request_info =[]
-    # params =[]
-    # @pytest.fixture(scope='module', autouse=True)#scope='module',
-    # def ddt_data(self, get_data):
-    #     global request_info,params_data
-    #     print('ddt_data')
-    #     data = get_data
-    #     request_info = data.pop(-1)
-    #     params = pre_phone_test.handdle_data(data)
 
-
+    # scope='module'意味着该fixture只在案例开始前运行一次
+    @pytest.fixture(scope='module', autouse=True)
+    def ddt_data(self):
+        pass
 
     # 类级别的事务fixture被标记为autouse=true，这意味着类中的所有测试方法将使用这个fixture，而不需要在测试函数签名中声明它
-    # @pytest.fixture(scope="module",params=["smtp.gmail.com", "mail.python.org"],autouse=True)
     @pytest.fixture(autouse=True)
     def handdler(self):
         print('pre do')
@@ -29,26 +23,18 @@ class TestPhoneCheck:
 
     # @pytest.mark.skip(reason="no way of currently testing this")a
     # @pytest.mark.skipif(3<2, reason="3>2")
-    # @pytest.mark.parametrize('param', pre_phone_test.www)
-    # @pytest.mark.parametrize('param', params)
-    # @pytest.mark.usefixtures('ddt_data')
-    def test_ddt(self,param):
-        # print('params_data:',params_data)
-        # print('request_info:',request_info)
-
+    def test_ddt(self, param):
         print(self.msgid)
         print(param)
-        # print('param::::=', param)
+        if param['request_info']['apiName'] != TestPhoneCheck.apiName:
+            print('apiName不匹配！')
+        else:
+            url = param['request_info']['request_url']
+            header = param['request_info']['headers']
+            data = param['request_params']
+            responce_assert = param['response_assert']
 
-        # if data_list[-1]['apiName'] != apiName:
-        #     print('apiName不匹配！')
-        # else:
-        #     print(data_list)
-        #     assert 1==1
-        #     print(445566)
+            res = requests.post(url, data=data, headers=header).json
 
-    # def test_1(self,param):
-    #     print('test_1')
-    #
-    # def test_2(self,param):
-    #     print('test_2')
+            assert responce_assert['srcCode'] == res['srcCode']
+            assert responce_assert['srcMsg'] == res['srcMsg']
