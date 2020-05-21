@@ -19,7 +19,7 @@ def param_to_excel(api_info, case_excel):
     else:
         print(f'已存在的sheet：{api_info["apiName"]}')
         return
-    sheet = wb.active
+    sheet = wb[api_info['apiName']]
     # 入参个数
     # request_params_len = len(api_info['parmas'])
     # 断言个数

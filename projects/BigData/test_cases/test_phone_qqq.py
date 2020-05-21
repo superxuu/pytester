@@ -15,6 +15,7 @@ class TestPhoneQqq:
         yield
         print('post do')
 
+    @pytest.mark.skip('跳过测试')
     def test_api(self,param):
 
         print(self.msgid)
