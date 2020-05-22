@@ -1,0 +1,1 @@
+apiName: phone_checkrequest_url: http://127.0.0.1:8000/vba1/vvv/23123request_method: postheaders:  token:parmas:  entInfo: {type: string,max_lengh: 5, Required: Y}  appid: {type: string,max_lengh: 10, Required: N}response_assert:  - code  - msg
