@@ -20,10 +20,12 @@ project = 'BigData'
 def pytest_generate_tests(metafunc):
     global apiName
     apiName = []
-    apiName.append(metafunc.cls.apiName)
-    case_data_list = load_testdata_from_caseexcel(project, apiName[0])
-    metafunc.parametrize('param', handdle_data(case_data_list))
-
+    try:
+        apiName.append(metafunc.cls.apiName)
+        case_data_list = load_testdata_from_caseexcel(project, apiName[0])
+        metafunc.parametrize('param', handdle_data(case_data_list))
+    except:
+        pass
 
 def handdle_data(data):
     __import__(f'projects.BigData.pre_test.{apiName[0]}')
