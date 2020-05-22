@@ -4,7 +4,8 @@ __pycache__/
 *$py.class
 # C extensions
 *.so
-
+report/allure-report/*
+report/allure-results/*
 # Distribution / packaging
 .Python
 build/
