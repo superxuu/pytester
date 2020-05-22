@@ -90,6 +90,11 @@ def handdle_data(data):
 
 def create_case(project_name, api_info):
     apiName = api_info['apiName']
+    assert_param_list = api_info['response_assert']
+    assert_content = ''
+    for assert_param in assert_param_list:
+        assert_content += f"assert responce_assert['{assert_param}'] == res['{assert_param}']\n                "
+
     case_path = Path(f'../projects/{project_name}/test_cases')
     case_list = [pj.name for pj in case_path.glob('*') if pj.is_file() and pj.name != '__init__.py']
     if f'test_{apiName}.py' in case_list:
@@ -133,8 +138,7 @@ class Test{apiName}:
             responce_assert = param['response_assert']
             try:
                 res = requests.post(url, json=data, headers=header).json()
-                assert responce_assert['code'] == res['code']
-                assert responce_assert['msg'] == res['msg']
+                {assert_content}
                 result2excel(__class__.__module__.split('.')[1], __class__.apiName, param['CaseName'], 'pass')
             except AssertionError as e:
                 result2excel(__class__.__module__.split('.')[1], __class__.apiName, param['CaseName'], str(e))

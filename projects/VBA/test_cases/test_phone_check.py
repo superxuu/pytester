@@ -35,6 +35,7 @@ class Testphone_check:
                 res = requests.post(url, json=data, headers=header).json()
                 assert responce_assert['code'] == res['code']
                 assert responce_assert['msg'] == res['msg']
+                
                 result2excel(__class__.__module__.split('.')[1], __class__.apiName, param['CaseName'], 'pass')
             except AssertionError as e:
                 result2excel(__class__.__module__.split('.')[1], __class__.apiName, param['CaseName'], str(e))

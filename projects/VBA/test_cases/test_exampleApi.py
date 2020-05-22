@@ -33,8 +33,9 @@ class TestexampleApi:
             responce_assert = param['response_assert']
             try:
                 res = requests.post(url, json=data, headers=header).json()
-                assert responce_assert['code'] == res['code']
-                assert responce_assert['msg'] == res['msg']
+                assert responce_assert['srcCode'] == res['srcCode']
+                assert responce_assert['srcMsg'] == res['srcMsg']
+                
                 result2excel(__class__.__module__.split('.')[1], __class__.apiName, param['CaseName'], 'pass')
             except AssertionError as e:
                 result2excel(__class__.__module__.split('.')[1], __class__.apiName, param['CaseName'], str(e))
