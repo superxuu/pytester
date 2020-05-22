@@ -1,6 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Tue Dec 31 15:27:03 CST 2019","Tue Dec 31 15:27:03 CST 2019","0","projects.example.test_cases","test_1","","","","test_with_no_severity_label",""
-"passed","Tue Dec 31 15:27:03 CST 2019","Tue Dec 31 15:27:03 CST 2019","0","projects.example.test_cases","test_1","","","","test_with_trivial_severity",""
-"passed","Tue Dec 31 15:27:03 CST 2019","Tue Dec 31 15:27:03 CST 2019","0","projects.example.test_cases","test_1","TestClassWithNormalSeverity","","","test_inside_the_normal_severity_test_class_with_overriding_critical_severity",""
-"passed","Tue Dec 31 15:27:03 CST 2019","Tue Dec 31 15:27:03 CST 2019","1","projects.example.test_cases","test_1","","","","test_with_normal_severity",""
-"passed","Tue Dec 31 15:27:03 CST 2019","Tue Dec 31 15:27:03 CST 2019","1","projects.example.test_cases","test_1","TestClassWithNormalSeverity","","","test_inside_the_normal_severity_test_class",""
