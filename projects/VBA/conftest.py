@@ -1,20 +1,8 @@
-import pytest
-from pathlib import Path
-
-from openpyxl import load_workbook
-
-
-# @pytest.fixture(scope='module')
-# def get_data(request, load_testdata_from_caseexcel):
-#     apiName = getattr(request.module, 'apiName')
-#     # print(apiName)
-#     return load_testdata_from_caseexcel('BigData', apiName)
-
 
 from util.read_excel_data import load_testdata_from_caseexcel
-from projects.BigData import pre_test
+from projects.VBA import pre_test
 
-project = 'BigData'
+project = 'VBA'
 
 
 def pytest_generate_tests(metafunc):
@@ -26,7 +14,7 @@ def pytest_generate_tests(metafunc):
 
 
 def handdle_data(data):
-    __import__(f'projects.BigData.pre_test.{apiName[0]}')
+    __import__(f'projects.VBA.pre_test.{apiName[0]}')
     func = getattr(pre_test, apiName[0])
 
     # 对该项目下所有接口的所有入参做同样的事情
@@ -34,5 +22,3 @@ def handdle_data(data):
 
 
     return func.handdle_data(data)
-
-

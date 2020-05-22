@@ -3,7 +3,7 @@ from pathlib import Path
 from pprint import pprint
 from openpyxl import load_workbook
 
-from util.case_yaml_to_excel import get_yaml
+from util.read_excel_data import get_yaml
 
 
 # @pytest.fixture(scope='session')

@@ -1,9 +1,13 @@
 from pathlib import Path
 
+import yaml
 from openpyxl import load_workbook
 
-from util.case_yaml_to_excel import get_yaml
 
+def get_yaml(yaml_file):
+    with open(yaml_file, encoding='UTF-8') as yf:
+        api_info = yaml.load(yf)
+        return api_info
 
 def load_testdata_from_caseexcel(project, apiName):
     """

@@ -5,8 +5,8 @@ import requests
 from util.result2excel import result2excel
 
 
-class Testphone_check:
-    apiName = 'phone_check'
+class TestexampleApi:
+    apiName = 'exampleApi'
 
     # scope='module'意味着该fixture只在案例开始前运行一次
     @pytest.fixture(scope='module', autouse=True)
@@ -24,7 +24,7 @@ class Testphone_check:
     # @pytest.mark.skipif(3<2, reason="3>2")
     def test_api(self, param):
         print(param)
-        if param['request_info']['apiName'] != Testphone_check.apiName:
+        if param['request_info']['apiName'] != TestexampleApi.apiName:
             print('apiName不匹配！')
         else:
             url = param['request_info']['request_url']
@@ -40,4 +40,3 @@ class Testphone_check:
                 result2excel(__class__.__module__.split('.')[1], __class__.apiName, param['CaseName'], str(e))
                 raise AssertionError(e)
 
-        

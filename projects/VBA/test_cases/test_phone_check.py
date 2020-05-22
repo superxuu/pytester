@@ -40,4 +40,3 @@ class Testphone_check:
                 result2excel(__class__.__module__.split('.')[1], __class__.apiName, param['CaseName'], str(e))
                 raise AssertionError(e)
 
-        
