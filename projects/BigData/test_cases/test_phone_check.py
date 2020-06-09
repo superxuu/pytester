@@ -1,3 +1,4 @@
+import logging
 
 import pytest
 import requests
@@ -23,7 +24,8 @@ class Testphone_check:
     # @pytest.mark.skip(reason="no way of currently testing this")a
     # @pytest.mark.skipif(3<2, reason="3>2")
     def test_api(self, param):
-        print(param)
+        logger = logging.getLogger(__name__)
+        logger.info(param)
         if param['request_info']['apiName'] != Testphone_check.apiName:
             print('apiName不匹配！')
         else:
@@ -35,9 +37,10 @@ class Testphone_check:
                 res = requests.post(url, json=data, headers=header).json()
                 assert responce_assert['code'] == res['code']
                 assert responce_assert['msg'] == res['msg']
+                logger.info(f"{param['CaseName']} pass")
                 result2excel(__class__.__module__.split('.')[1], __class__.apiName, param['CaseName'], 'pass')
             except AssertionError as e:
+                logger.error(f"{param['CaseName']} fail:\n{e}")
                 result2excel(__class__.__module__.split('.')[1], __class__.apiName, param['CaseName'], str(e))
                 raise AssertionError(e)
 
-        

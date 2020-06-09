@@ -3,4 +3,5 @@ pathlib
 openpyxl
 pyYaml
 shutil
-
+pytest-reportlog
+pytest-html

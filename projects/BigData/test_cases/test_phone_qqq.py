@@ -20,3 +20,6 @@ class TestPhoneQqq:
 
         print(self.msgid)
         print(param)
+
+    def test_a(self):
+        assert 1 == 12

@@ -65,7 +65,7 @@ def param_to_excel(api_info, case_excel):
     sheet.append(title_list)
     # sheet.row_dimensions[2].alignment = Alignment(horizontal='center', vertical='center')
     wb.save(case_excel)
-    wb.close(case_excel)
+    wb.close()
 
 
 def create_pre_test(project_name, api_info):
