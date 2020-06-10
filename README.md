@@ -4,7 +4,7 @@
 
 ​	测试数据存放在excel中，案例运行时，数据从excel取出，先经过项目级pre_test func，允许对项目下所有接口数据做相同的处理，例如加密加签等；然后传递给接口各自的pre_test func，允许对每个接口数据做不同的定制化处理；最终将数据以数据驱动的方式传递给测试案例。测试案例运行请求断言后，将每条案例的测试结果回写到数据excel，并生成HTML测试报告。
 
-![image](https://github.com/superxuu/pytester/blob/master/flowchart.png)
+![image](flowchart.png)
 
 ### 使用教程
 
